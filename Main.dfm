@@ -1,6 +1,6 @@
 object QuickMenuForm: TQuickMenuForm
-  Left = 252
-  Top = 612
+  Left = 275
+  Top = 561
   Width = 278
   Height = 102
   Caption = 'QuickMenu'
@@ -16,8 +16,8 @@ object QuickMenuForm: TQuickMenuForm
   PixelsPerInch = 120
   TextHeight = 16
   object qm: TPopupMenu
-    Left = 80
-    Top = 32
+    Left = 72
+    Top = 24
     object a1: TMenuItem
       Caption = 'a'
     end

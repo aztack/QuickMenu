@@ -19,6 +19,7 @@ type
   private
   public
     Procedure WM_SHOW_MENU(var msg:TMessage);Message WM_SHOW_MENU_MESSAGE;
+    procedure Run(path: string);
   end;
 
 var
@@ -26,7 +27,7 @@ var
 
 implementation
 uses
-  IMP_Classes, IMP_Controls, IMP_StdCtrls, IMP_ComCtrls, IMP_Menus;
+  IMP_Classes, IMP_Controls, IMP_StdCtrls, IMP_ComCtrls, IMP_Menus, IMP_ShellAPI;
 {$R *.dfm}
 
 procedure TQuickMenuForm.FormCreate(Sender: TObject);
@@ -41,6 +42,11 @@ begin
     PaxScripter.AddCodeFromFile('main',path);
   end;
   PaxScripter.Run;
+end;
+
+procedure TQuickMenuForm.Run(path: string);
+begin
+
 end;
 
 procedure TQuickMenuForm.WM_SHOW_MENU;
