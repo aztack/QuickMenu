@@ -1,7 +1,7 @@
 program QuickMenu;
 
 uses
-  Classes,Windows,Forms,Menus,SysUtils,ShellAPI,Graphics,Controls;
+  Messages,Classes,Windows,Forms,Menus,SysUtils,ShellAPI,Graphics,Controls;
 
 {$R *.res}
 type
@@ -20,6 +20,8 @@ var
   hico:HIcon;
   icon: TIcon;
   imageList : TImageList;
+  IsExit: Boolean;
+
 function fixStr(s:string;d:char):string;
 begin
  Result := '"' + StringReplace(s, d, '"' + d + '"', [rfReplaceAll]) + '"';
@@ -33,24 +35,28 @@ begin
        dir := ExtractFileDir(path);
        ShellExecute(Application.Handle,'open',PChar(path),nil,PChar(dir),SW_NORMAL);
      end;
-     Application.Terminate;
+     IsExit:= true;
+     //Application.Terminate; {not work once enter message loop}
 end;
 begin
   path := ParamStr(1);
   if path = '' then path := 'default.menu';
   if not FileExists(path) then
   begin
-    Application.MessageBox(PChar('default.menu not found'), 'Error', MB_OK +
+    Application.MessageBox(PChar(path + ' not found'), 'Error', MB_OK +
       MB_ICONSTOP);
     Exit;
   end;
+  IsExit:=False;
   Application.Initialize;
   list:=TStringList.Create;
   list.LoadFromFile(path);
   menu := TPopupMenu.Create(Application);
+
   imageList:=TImageList.Create(menu);
   menu.Images := imageList;
   menu.AutoHotkeys := maManual;
+
   commands := TStringList.Create;
   for i:=0 to list.Count -1 do
   begin
@@ -89,11 +95,12 @@ begin
   end;
   item := TMenuItem.Create(menu);
   item.Caption := 'E&xit';
+  item.AutoHotkeys := maAutomatic;
   method.Data := item;
   item.OnClick := TNotifyEvent(method);
   item.Tag := -1;
   menu.Items.Add(item);
   GetCursorPos(p);
   menu.Popup(p.X,p.Y);
-  while True do Application.ProcessMessages;
+  while True and IsExit = False do Application.ProcessMessages;
 end.
