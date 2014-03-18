@@ -1,0 +1,10 @@
+Caption=飞信,Path=C:\\Program Files\\China Mobile\\Fetion\\Fetion.exe
+Caption=有道笔记,Path=C:\\Program Files (x86)\\Youdao\\YoudaoNote\\RunYNote.exe
+Caption=PicPick,Path=C:\\Program Files (x86)\\PicPick\\picpick.exe
+Caption=KMPlayer,Path=C:\\Program Files\\The KMPlayer\\KMPlayer.exe
+-
+Caption=BCompare,Path=D:\\\\Program Files\\\\bcompare\\\\BCompare.exe
+Caption=SQLiteAdmin,Path=D:\\prog\\sqliteadmin\\sqliteadmin.exe
+Caption=Filzilla,Path=C:\\Program Files (x86)\\FileZilla FTP Client\\filezilla.exe
+Caption=Firefox,Path=D:\\Program Files\\Firefox26\\App\\Firefox\\firefox.exe
+Caption=RegexBuddy,Path=C:\\Program Files (x86)\\Just Great Software\\RegexBuddy3\\RegexBuddy.exe

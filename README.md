@@ -1,7 +1,7 @@
 QuickMenu - A JavaScript enabled Pop Menu Tools
-=========
+===============================================
 
-#define WM_SHOW_MENU_MESSAGE 1106
+`#define WM_SHOW_MENU_MESSAGE 1106`
 
 window class name "TQuickMenuForm", "ahk_class TQuickMenuForm" for AutoHotkey & AutoIt
 
